@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 
 //함수 선언
 int check(int (*arr)[], int num, char* result);
@@ -14,15 +13,13 @@ int main() {
     int t;
     int n;
     char data[50];
-    char *total[100] = {};
+    char result[100][90];
 
     //시행 횟수 입력
     scanf("%d",&t);
 
     //반복문 실행
     for (int i = 0 ; i < t ; i++) {
-        //char result[90];
-        char *result = malloc(sizeof(char)*90);
         scanf("%d", &n);
         number = n;
         int array[n][n];
@@ -32,12 +29,13 @@ int main() {
             }
         }
         check(array,n,data);
-        sprintf(result, "Case #%d: %s", i+1, data);
-        total[i] = result;
+        sprintf(result[i], "Case #%d: %s", i+1, data);
     }
 
+    
+
     for (int k = 0 ; k < t ; k++) {
-        printf("%s\n", total[k]);
+        printf("%s\n", result[k]);
     }
 }
 
@@ -89,4 +87,3 @@ int check(int (*arr)[number], int num, char* result) {
     //printf("ASDfasdf");
     //printf("%s\n", result); //정상 작동
 }
-
